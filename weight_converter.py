@@ -36,9 +36,18 @@ class mainWindow(object):
         self.s2.pack(fill=Y, side=RIGHT)
         self.textname2.configure(yscrollcommand=self.s2.set)
 
+class functionality(mainWindow):
+    def __init__(self,master):
+        super().__init__(master)
+
+        self.fromleb = Label(self.frameDown,text = "Conversion type:")
+        self.fromleb.grid(pady=5,row=0)
+
+
+
 def main():
     root = Tk()
-    mainWindow(root)
+    functionality(root)
     root.mainloop()
 
 if __name__=='__main__':
