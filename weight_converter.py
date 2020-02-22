@@ -9,6 +9,14 @@ class mainWindow(object):
         self.master.geometry("500x400")
         self.master.resizable(False,False)
 
+  self.frameUpper = Frame(self.master)
+        self.frameUpper.pack(fill=X)
+
+        self.frameMiddle = Frame(self.master)
+        self.frameMiddle.pack(fill=BOTH,expand=1)
+
+        self.frameDown = Frame(self.master)
+        self.frameDown.pack(fill=BOTH,expand=1)
 
 def main():
     root = Tk()
