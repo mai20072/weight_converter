@@ -23,6 +23,18 @@ class mainWindow(object):
 
         self.amleb2 = Label(self.frameUpper,text = "Results")
         self.amleb2.grid(row=0,column=1,padx=190,sticky=E)
+        
+        self.textname = Text(self.frameMiddle)
+        self.textname.pack(fill=BOTH,expand=Y,side=LEFT)
+        self.s = ttk.Scrollbar(self.textname, orient=VERTICAL, command=self.textname.yview)
+        self.s.pack(fill=Y, side=RIGHT)
+        self.textname.configure(yscrollcommand=self.s.set)
+        
+        self.textname2 = Text(self.frameMiddle)
+        self.textname2.pack(fill=BOTH,expand=Y,side=RIGHT)
+        self.s2 = ttk.Scrollbar(self.textname2, orient=VERTICAL, command=self.textname2.yview)
+        self.s2.pack(fill=Y, side=RIGHT)
+        self.textname2.configure(yscrollcommand=self.s2.set)
 
 def main():
     root = Tk()
