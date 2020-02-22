@@ -137,13 +137,25 @@ class functionality(mainWindow):
                     value = i*2.20462
                     self.textname2.insert('end',value)
                     self.textname2.insert('end',"\n")
-
+    def cleart(self):
+        """ clears text field """
+        self.textname.delete(1.0,END)
+        
     def save(self):
         file_name = filedialog.asksaveasfilename(title="Save as...",defaultextension='.csv')
         with open(file_name,'a+') as f:
             for i in self.lines:
                 f.write(str(i)+'\n')
-
+    def exitmenu(self):
+        if msg.askokcancel("Quit?", "Really quit?"):
+            self.master.destroy()
+    
+    def helpmenu(self):
+        msg.showinfo("Help")
+    
+    def aboutmenu(self):
+        msg.showinfo("About","About Weight Converter \nVersion 1.0")
+        
 def main():
     root = Tk()
     functionality(root)
