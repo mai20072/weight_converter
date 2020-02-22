@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox as msg
-from tkinter import ttk
+from tkinter import filedialog,ttk
 
 
 class mainWindow(object):
@@ -56,7 +56,7 @@ class functionality(mainWindow):
         self.savef = Button(self.frameDown ,text = "Save As...",command=self.save)
         self.savef.grid(pady=5,row=3,column=1,sticky=W)
 
-     def conv(self):
+    def conv(self):
         """ convertion fuction """ 
         try:self.textname2.delete(1.0,END)
         except:pass
@@ -84,11 +84,13 @@ class functionality(mainWindow):
                     value = i*2.20462
                     self.textname2.insert('end',value)
                     self.textname2.insert('end',"\n")
-     def save(self):
+
+    def save(self):
         file_name = filedialog.asksaveasfilename(title="Save as...",defaultextension='.csv')
         with open(file_name,'a+') as f:
             for i in self.lines:
                 f.write(str(i)+'\n')
+
 def main():
     root = Tk()
     functionality(root)
