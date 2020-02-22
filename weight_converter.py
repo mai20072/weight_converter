@@ -37,6 +37,30 @@ class mainWindow(object):
         self.s2.pack(fill=Y, side=RIGHT)
         self.textname2.configure(yscrollcommand=self.s2.set)
 
+        # menu 
+        self.menu = Menu(self.master)
+        
+        self.file_menu = Menu(self.menu,tearoff = 0)
+        self.file_menu.add_command(label = "Open",accelerator = 'Ctrl+O')
+        self.file_menu.add_command(label = "Convert",accelerator = 'Ctrl+T')
+        self.file_menu.add_command(label = "Save",accelerator = 'Ctrl+S')
+        self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4')
+        self.menu.add_cascade(label = "File",menu=self.file_menu)
+
+        self.edit_menu = Menu ( self.menu,tearoff = 0)
+        self.edit_menu.add_command(label = "Clear text field",accelerator = 'Alt + S')
+        self.menu.add_cascade(label = "Edit" , menu  = self.edit_menu)
+        
+        self.about_menu = Menu(self.menu,tearoff = 0)
+        self.about_menu.add_command(label = "About",accelerator= 'Ctrl+I')
+        self.menu.add_cascade(label="About",menu=self.about_menu)
+        
+        self.help_menu = Menu(self.menu,tearoff = 0)
+        self.help_menu.add_command(label = "Help",accelerator = 'Ctrl+F1')
+        self.menu.add_cascade(label="Help",menu=self.help_menu)
+        
+        self.master.config(menu=self.menu)
+
 class functionality(mainWindow):
     def __init__(self,master):
         super().__init__(master)
