@@ -48,7 +48,12 @@ class functionality(mainWindow):
         self.varfrom.set(self.fromlist[0])
         self.popupfrommenu = OptionMenu(self.frameDown ,self.varfrom,*self.fromlist)
         self.popupfrommenu.grid(pady=5,row=0,column=1,sticky=E)
+        
+        self.convb = Button(self.frameDown ,text = "Convert")
+        self.convb.grid(pady=5,padx=5,row=3,column=0,sticky=W)
 
+        self.savef = Button(self.frameDown ,text = "Save As...")
+        self.savef.grid(pady=5,row=3,column=1,sticky=W)
 
 def main():
     root = Tk()
