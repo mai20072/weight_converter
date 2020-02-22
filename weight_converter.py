@@ -42,7 +42,12 @@ class functionality(mainWindow):
 
         self.fromleb = Label(self.frameDown,text = "Conversion type:")
         self.fromleb.grid(pady=5,row=0)
-
+        
+        self.fromlist = list([" ", "Kg -> Lbs", "Lbs -> Kg"])
+        self.varfrom = StringVar(master)
+        self.varfrom.set(self.fromlist[0])
+        self.popupfrommenu = OptionMenu(self.frameDown ,self.varfrom,*self.fromlist)
+        self.popupfrommenu.grid(pady=5,row=0,column=1,sticky=E)
 
 
 def main():
