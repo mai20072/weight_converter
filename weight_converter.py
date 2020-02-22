@@ -52,8 +52,39 @@ class functionality(mainWindow):
         self.convb = Button(self.frameDown ,text = "Convert")
         self.convb.grid(pady=5,padx=5,row=3,column=0,sticky=W)
 
+        
+
         self.savef = Button(self.frameDown ,text = "Save As...")
         self.savef.grid(pady=5,row=3,column=1,sticky=W)
+
+    def conv(self):
+        """ convertion fuction """ 
+        try:self.textname2.delete(1.0,END)
+        except:pass
+        corf = 0
+
+        if self.varfrom.get() == " ":
+            print(2)
+            msg.showerror("Error", "Choose a conversion type!")
+        else:
+            #try:
+            self.lines = (self.textname.get(1.0,END).replace(' ','\n').replace(',','\n'))
+            self.lines = (self.lines.splitlines())
+            self.lines = self.lines[0:len(self.lines)] 
+            self.lines = [ x for x in self.lines if x.replace('.', '', 1).isdigit()  ]
+            for i in range(len(self.lines)):self.lines[i] = float(self.lines[i])
+            corf=1
+
+        if corf==1:
+            for i in self.lines:
+                if self.varfrom.get() == "Lbs -> Kg":
+                    value = i*0.45359237
+                    self.textname2.insert('end',value)
+                    self.textname2.insert('end',"\n")
+                elif self.varfrom.get() == "Kg -> Lbs":
+                    value = i*2.20462
+                    self.textname2.insert('end',value)
+                    self.textname2.insert('end',"\n")
 
 def main():
     root = Tk()
