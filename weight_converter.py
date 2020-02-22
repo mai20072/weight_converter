@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox as msg
 from tkinter import filedialog,ttk
 
+import csv,os
 
 class mainWindow(object):
     def __init__(self,master):
