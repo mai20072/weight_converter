@@ -84,6 +84,7 @@ class functionality(mainWindow):
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
+        self.file_menu.add_command(label = "Open",accelerator = 'Ctrl+O',command = self.open)
         self.file_menu.add_command(label = "Convert",accelerator = 'Ctrl+T',command = self.conv)
         self.file_menu.add_command(label = "Save",accelerator = 'Ctrl+S',command = self.save)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
@@ -137,6 +138,21 @@ class functionality(mainWindow):
                     value = i*2.20462
                     self.textname2.insert('end',value)
                     self.textname2.insert('end',"\n")
+                    
+    def open(self):
+        formats = [("Csv files", "*.csv"),("Text files", "*.txt"),("all files", "*.*")]
+        filename = filedialog.askopenfilename(initialdir="/", title="Select A File", filetypes=formats)
+        try:
+            with open(filename) as f:
+                thereader = csv.reader(f)
+                for row in thereader:
+                    try:
+                        row = float(row[0])
+                        self.textname.insert('end',row)
+                        self.textname.insert('end',"\n")
+                    except: pass
+        except: pass
+        
     def cleart(self):
         """ clears text field """
         self.textname.delete(1.0,END)
