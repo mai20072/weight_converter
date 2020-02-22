@@ -79,6 +79,35 @@ class functionality(mainWindow):
 
         self.savef = Button(self.frameDown ,text = "Save As...",command=self.save)
         self.savef.grid(pady=5,row=3,column=1,sticky=W)
+        
+        # menu 
+        self.menu = Menu(self.master)
+        
+        self.file_menu = Menu(self.menu,tearoff = 0)
+        self.file_menu.add_command(label = "Convert",accelerator = 'Ctrl+T',command = self.conv)
+        self.file_menu.add_command(label = "Save",accelerator = 'Ctrl+S',command = self.save)
+        self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
+        self.menu.add_cascade(label = "File",menu=self.file_menu)
+
+        self.edit_menu = Menu ( self.menu,tearoff = 0)
+        self.edit_menu.add_command(label = "Clear text field",accelerator = 'Alt + S',command = self.cleart)
+        self.menu.add_cascade(label = "Edit" , menu  = self.edit_menu)
+        
+        self.about_menu = Menu(self.menu,tearoff = 0)
+        self.about_menu.add_command(label = "About",accelerator= 'Ctrl+I',command=self.aboutmenu)
+        self.menu.add_cascade(label="About",menu=self.about_menu)
+        
+        self.help_menu = Menu(self.menu,tearoff = 0)
+        self.help_menu.add_command(label = "Help",accelerator = 'Ctrl+F1',command=self.helpmenu)
+        self.menu.add_cascade(label="Help",menu=self.help_menu)
+        
+        self.master.config(menu=self.menu)
+        self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
+        self.master.bind('<Alt-s>',lambda event: self.cleart())
+        self.master.bind('<Control-F1>',lambda event: self.helpmenu())
+        self.master.bind('<Control-i>',lambda event:self.aboutmenu())
+        self.master.bind('<Control-s>',lambda event:self.save())
+        self.master.bind('<Control-t>',lambda event:self.conv())
 
     def conv(self):
         """ convertion fuction """ 
