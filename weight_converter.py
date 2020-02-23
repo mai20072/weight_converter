@@ -109,6 +109,7 @@ class functionality(mainWindow):
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
         self.master.bind('<Control-s>',lambda event:self.save())
+        self.master.bind('<Control-o>',lambda event:self.open())
         self.master.bind('<Control-t>',lambda event:self.conv())
 
     def conv(self):
@@ -130,12 +131,13 @@ class functionality(mainWindow):
             corf=1
 
         if corf==1:
-            for i in self.lines:
-                if self.varfrom.get() == "Lbs -> Kg":
+            if self.varfrom.get() == "Lbs -> Kg":
+                for i in self.lines:
                     value = i*0.45359237
                     self.textname2.insert('end',value)
                     self.textname2.insert('end',"\n")
-                elif self.varfrom.get() == "Kg -> Lbs":
+            elif self.varfrom.get() == "Kg -> Lbs":
+                for i in self.lines:
                     value = i*2.20462
                     self.textname2.insert('end',value)
                     self.textname2.insert('end',"\n")
@@ -171,7 +173,7 @@ class functionality(mainWindow):
         msg.showinfo("Help","Input data by File-Open or keyboard. \nSpaces and commas indicate other number value.\nNumber point number for decimals (half Kg=0.5). \nAlphabetical characters aren't supported!")
     
     def aboutmenu(self):
-        msg.showinfo("About","About Weight Converter \nVersion 1.0")
+        msg.showinfo("About","About Weight Converter \nVersion 1.1")
         
 def main():
     root = Tk()
