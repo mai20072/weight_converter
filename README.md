@@ -1,10 +1,10 @@
 # weight_converter
  This is a weight converting program. The basic conversion it performs is pounds (Lbs) to kilos (Kgs) or the opposite. The program accepts input data either from the keyboard or from a file and it can export the result to a csv file.
 
-Running the program
+# Running the program
 Execute weight_converter.exe for Windows.
 
-Instructions
+# Instructions
 Enter data to the 'Input Data' field, either from keyboard or by opening files.
 To open files select 'File' and then select 'Open' and select a file.
 The program can read .csv and .txt files.
@@ -20,8 +20,8 @@ After selecting to save input a name for the file and press 'Save'. The resultin
 To clear 'Input Data' select 'Edit' and then 'Clear text field'.
 
 
-Authors
-Achilleas Soulis
-Sofia Mitsaka
-Kostas Karagiorgos
+# Authors
+Achilleas Soulis-
+Sofia Mitsaka-
+Kostas Karagiorgos-
 Giorgos Tsountas
