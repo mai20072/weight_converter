@@ -168,7 +168,7 @@ class functionality(mainWindow):
             self.master.destroy()
     
     def helpmenu(self):
-        msg.showinfo("Help")
+        msg.showinfo("Help","Input data by File-Open or keyboard. \nSpaces and commas indicate other number value.\nNumber point number for decimals (half Kg=0.5). \nAlphabetical characters aren't supported!")
     
     def aboutmenu(self):
         msg.showinfo("About","About Weight Converter \nVersion 1.0")
